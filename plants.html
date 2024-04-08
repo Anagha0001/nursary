@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="./plants.json" />
+
+    <title>Growing Dreams Nursery Garden</title>
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="logo">Growing Dreams Nursery Garden</div>
+      <nav>
+        <ul>
+          <li><a href="signin.html">Sign in</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plants.html">Plants</a></li>
+          <li><a href="aboutus.html">About us</a></li>
+          <li><a href="contactus.html">Contact us</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <!-- Add Cart link -->
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Plants Section -->
+    <section id="plants"></section>
+
+    <!-- JavaScript -->
+    <script>
+      fetch("./plants.json")
+        .then((response) => response.json())
+        .then((data) => displayPlants(data));
+
+      function displayPlants(plants) {
+        const plantsSection = document.getElementById("plants");
+
+        plants.forEach((plant) => {
+          const plantItem = document.createElement("div");
+          plantItem.classList.add("plant-item");
+
+          plantItem.innerHTML = `
+         <div class="plant-img">
+           <img src="${plant.image}" alt="${plant.name}" />
+         </div>
+         <h2>${plant.name}</h2>
+         <p>Price: $${plant.price.toFixed(2)}</p>
+           <a class="buy-now" href="showmore.html" onclick="storePlantCategoryInLocalStorage('${
+             plant.category
+           }')">Show More</a>
+       `;
+
+          plantsSection.appendChild(plantItem);
+        });
+      }
+
+      // variable to store cart items
+      let cartItems = [];
+
+      function addToCart(plantName, price, id) {
+        // Create an object for the plant
+        const plant = {
+          name: plantName,
+          price: price,
+          quantity: 1,
+          id: id,
+        };
+
+        // Add the plant to the cart
+        cartItems.push(plant);
+
+        // Save the cart to localStorage
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+
+        // Redirect to the cart page
+        // window.location.href = "cart.html";
+      }
+
+      // Display cart items on the cart page
+      document.addEventListener("DOMContentLoaded", function () {
+        // Remove contact form related code
+      });
+    </script>
+
+    <!-- JSON data -->
+    <script>
+      const plantsData = [
+        {
+          id: 1,
+          name: "Flowering Plants",
+          price: 12.99,
+          image: "lily.jpg",
+          category: "fp",
+        },
+        {
+          id: 2,
+          name: "Ayurvedic plants",
+          price: 9.99,
+          image: "aloveram.jpg",
+          category: "fer",
+        },
+        {
+          id: 3,
+          name: "Conifers",
+          price: 8.49,
+          image: "suggic.jpg",
+          category: "con",
+        },
+        {
+          id: 4,
+          name: "Succulents",
+          price: 14.99,
+          image: "moths.jpg",
+          category: "suc",
+        },
+        {
+          id: 5,
+          name: "airpurifying",
+          price: 7.99,
+          image: "rubber.jpg",
+          category:"gra",
+        },
+        {
+          id: 6,
+          name: "Herbs",
+          price: 19.99,
+          image: "h10.jpg",
+          category: "her",
+        },
+        {
+          id: 7,
+          name: "Shrubs",
+          price: 5.99,
+          image: "shub.jpg",
+          category: "shr",
+        },
+        {
+          id: 8,
+          name: "Trees",
+          price: 11.49,
+          image: "mangooot.jpg",
+          category: "tre",
+        },
+        {
+          id: 9,
+          name: "Aquatic Plants",
+          price: 11.49,
+          image: "alternantherareineckii.jpg",
+          category: "aqu",
+        },
+      ];
+
+      // Call the displayPlants function with the data
+      displayPlants(plantsData);
+    </script>
+
+    <!-- JavaScript for About Us Section -->
+    <script>
+      function storePlantCategoryInLocalStorage(plantCategory) {
+        // Store the plant name in local storage
+        localStorage.setItem("plantCategory", plantCategory);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.489);
+    color: #fff;
+    padding: 10px 30px;
+    width: calc(100% - 60px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    height: 50px;
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logo:hover {
+    color: #4CAF50;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #4CAF50;
+}
+
+#home {
+    height: 100%;
+    background-image: url("walpaper.jpeg");
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    /* Remove any margin */
+}
+
+.hero {
+    text-align: center;
+    padding: 20% 10%;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #4CAF50;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+/* plants */
+#plants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 60px 50px;
+    height: 100%;
+}
+
+.plant-item {
+    width: 300px;
+    height: fit-content;
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid gray;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.3s;
+}
+
+.plant-img {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+
+}
+
+.plant-item:hover {
+    transform: scale(1.05);
+}
+
+.plant-item img {
+    width: 1000px;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.plant-item h2 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+.plant-item p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.buy-now {
+    display: block;
+    width: 92.5%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.buy-now:hover {
+    background-color: #45a049;
+}
+
+/* about us */
+
+#about {
+    background-color: #f8f8f8;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* contact us */
+#contact {
+    background-color: #f4f4f4;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+
+}
+
+.contact-form h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}

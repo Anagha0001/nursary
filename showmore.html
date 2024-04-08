@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Add this CSS for horizontal layout */
+      #plantDetails {
+        display: flex;
+        flex-wrap: wrap; /* Wrap items to the next line */
+        justify-content: space-between; /* Add space between the items */
+      }
+
+      .plant-item {
+        flex: 0 0 calc(25% - 20px); /* Each plant item takes 25% width with margin */
+        margin-bottom: 20px; /* Add margin at the bottom for spacing */
+      }
+      .buynow {
+        background-color: green;
+      }
+      .primary-button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .primary-button:hover {
+        background-color: #45a049;
+      }
+      .secondary-button {
+        background-color: lightGray;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .secondary-button:hover {
+        background-color: darkgray;
+      }
+    </style>
+    <title>Show More - Growing Dreams Nursery Garden</title>
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="logo">Growing Dreams Nursery Garden</div>
+      <nav>
+        <ul>
+          <li><a href="signin.html">Sign in</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plants.html">Plants</a></li>
+          <li><a href="aboutus.html">About us</a></li>
+          <li><a href="contactus.html">Contact us</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Plant Details Section -->
+    <section id="plantDetails">
+      <!-- Create separate arrays for different types of plants -->
+      <script>
+        const fp = [
+          {
+            id: 11,
+            name: "Rink Rose",
+            type: "Flowering plants",
+            price: 12.99,
+            image: "rose.jpg",
+          },
+          {
+            id: 12,
+            name: "African violets",
+            type: "Flowering plants",
+            price: 9.99,
+            image: "africanvioletsfp.jpg",
+          },
+          {
+            id: 13,
+            name: "champa",
+            type: "Flowering plants",
+            price: 14.99,
+            image: "champafp.jpg",
+          },
+          {
+            id: 14,
+            name: "Mallow",
+            type: "Flowering plants",
+            price: 10.99,
+            image: "Mallowfp.jpg",
+          },
+          {
+            id: 15,
+            name: "Lavender",
+            type: "Flowering plants",
+            price: 16.99,
+            image: "lavenderfp.jpg",
+          },
+          {
+            id: 16,
+            name: "Orchid",
+            type: "Flowering plants",
+            price: 18.99,
+            image: "orchidsfp.jpg",
+          },
+          {
+            id: 17,
+            name: "daffodil",
+            type: "Flowering plants",
+            price: 11.99,
+            image: "daffodilfp.jpg",
+          },
+          {
+            id: 18,
+            name: "Irises",
+            type: "Flowering plants",
+            price: 15.99,
+            image: "irisesfp.jpg",
+          },
+          {
+            id: 19,
+            name: "Jasmine",
+            type: "Flowering plants",
+            price: 10.99,
+            image: "jasminefp.jpg",
+          },
+        ];
+
+        const fer = [
+          {
+            id: 21,
+            name: "amurthanoni",
+            type: "Ayurvedic plants",
+            price: 29.99,
+            image:"amurthanonim.jpg"
+          },
+          {
+            id: 22,
+            name: "Asiaticleaf",
+            type: "Ayurvedic plants",
+            price: 39.99,
+            image: "Asiaticleafm.jpg",
+          },
+          {
+            id: 23,
+            name: "banjara",
+            type: "Ayurvedic plants",
+            price: 9.99,
+            image: "banjaram.jpg",
+          },
+          {
+            id: 24,
+            name: "bittle leaf",
+            type: "Ayurvedic plants",
+            price: 19.99,
+            image: "bittleleafm.jpg",
+          },
+          {
+            id: 25,
+            name: "brahmi",
+            type: "Ayurvedic plants",
+            price: 79.99,
+            image: "brahmim.jpg",
+          },
+          {
+            id: 26,
+            name: "kuppaimeni",
+            type: "Ayurvedic plants",
+            price: 99.99,
+            image: "kuppaimenim.jpg",
+          },
+          {
+            id: 27,
+            name: "mint",
+            type:"Ayurvedic plants",
+            price: 11.99,
+            image: "mintm.jpg",
+          },
+          {
+            id: 28,
+            name: "tulsi",
+            type: "Ayurvedic plants",
+            price: 78.99,
+            image: "tulsim.jpg",
+          },
+          {
+            id: 29,
+            name: "curryleaf",
+            type: "Ayurvedic plants",
+            price: 56.99,
+            image: "curryleafm.jpg",
+          },
+        ];
+
+        const con = [
+          {
+            id: 31,
+            name: "care advice",
+            type: "Conifers",
+            price: 9.99,
+            image: "careadvicec.jpg",
+          },
+          {
+            id: 32,
+            name: "conifer",
+            type: "Conifers",
+            price: 9.99,
+            image: "coniferc.jpg",
+          },
+          {
+            id: 33,
+            name: "cupressus",
+            type: "Conifers",
+            price: 9.99,
+            image: "cupressusc.jpg",
+          },
+          {
+            id: 34,
+            name: "japanaseyew",
+            type: "Conifers",
+            price: 9.99,
+            image: "japanaseyewc.jpg",
+          },
+          {
+            id: 35,
+            name: "juniper",
+            type: "Conifers",
+            price: 9.99,
+            image: "juniperc.jpg",
+          },
+          {
+            id: 36,
+            name: "yellowood",
+            type: "Conifers",
+            price: 9.99,
+            image: "yellowoodc.jpg",
+          },
+          {
+            id: 37,
+            name: "orienral ArborVitaec",
+            type: "Conifers",
+            price: 9.99,
+            image: "orienralArborVitaec.jpg",
+          },
+          {
+            id: 38,
+            name: "pine",
+            type: "Conifers",
+            price: 9.99,
+            image: "pinec.jpg",
+          },
+          {
+            id: 39,
+            name: " taxus",
+            type: "Conifers",
+            price: 9.99,
+            image: "taxusc.jpg",
+          },
+        ];
+
+        const suc = [
+          {
+            id: 41,
+            name: "burrostail",
+            type: "Succulents",
+            price: 9.99,
+            image: "burrostails.jpg",
+          },
+          {
+            id: 42,
+            name: "crown on thorn",
+            type: "Succulents",
+            price: 9.99,
+            image: "crownonthorns.jpg",
+          },
+          {
+            id: 43,
+            name: "dracena",
+            type: "Succulents",
+            price: 9.99,
+            image: "dracenas.jpg",
+          },
+          {
+            id: 44,
+            name: "catutus",
+            type: "Succulents",
+            price: 9.99,
+            image: "catutus.jpg",
+          },
+          {
+            id: 45,
+            name:  " woodsorrel",
+            type: "Succulents",
+            price: 9.99,
+            image: "woodsorrels.jpg",
+          },
+          {
+            id: 46,
+            name: "raditor plant",
+            type: "Succulents",
+            price: 9.99,
+            image: "raditorplants.jpg",
+          },
+          {
+            id: 47,
+            name: "zephyrilily",
+            type: "Succulents",
+            price: 9.99,
+            image: "zephyrililys.jpg",
+          },
+          {
+            id: 48,
+            name: "jadeplant",
+            type: "Succulents",
+            price: 9.99,
+            image: "jadeplants.jpg",
+          },
+          {
+            id: 49,
+            name: "elegenans",
+            type: "Succulents",
+            price: 9.99,
+            image: "elegenanss.jpg",
+          },
+        ];
+
+        const gra =[
+          {
+            id: 51,
+            name: "calthea",
+            type:"airpurifying",
+            price: 9.99,
+            image: "caltheaair.jpg"
+          },
+          {
+            id: 52,
+            name: "philodendron",
+            type:"airpurifying",
+            price: 9.99,
+            image: "philodendronair.jpg",
+          },
+          {
+            id: 53,
+            name: "pothos",
+            type:"airpurifying",
+            price: 9.99,
+            image: "pothosair.jpg",
+          },
+          {
+            id: 54,
+            name: "spider",
+            type:"airpurifying",
+            price: 9.99,
+            image: "spiderair.jpg",
+          },
+          {
+            id: 55,
+            name: "moneyplant",
+            type: "airpurifying",
+            price: 9.99,
+            image: "moneyplantair.jpg",
+          },
+          {
+            id: 56,
+            name: "flamingo",
+            type:"airpurifying",
+            price: 9.99,
+            image: "flamingoair.jpg",
+          },
+          {
+            id: 57,
+            name: "palm",
+            type: "airpurifying",
+            price: 9.99,
+            image: "palm.jpg",
+          },
+          {
+            id: 58,
+            name: "peacelily",
+            type:"airpurifying",
+            price: 9.99,
+            image: "peacelily.jpg",
+          },
+          {
+            id: 59,
+            name: "weepingfig",
+            type:"airpurifying",
+            price: 9.99,
+            image: "weepingfig.jpg",
+          },
+        ];
+
+        const her = [
+          {
+            id: 61,
+            name: "Peppermint",
+            type: "Lily",
+            price: 9.99,
+            image: "h1.jpg",
+          },
+          {
+            id: 62,
+            name: "Lemongrass",
+            type: "Lily",
+            price: 9.99,
+            image: "h2.jpg",
+          },
+          {
+            id: 63,
+            name: "corindar",
+            type: "Lily",
+            price: 9.99,
+            image: "h3.jpg",
+          },
+          {
+            id: 64,
+            name: "Thyme",
+            type: "Lily",
+            price: 9.99,
+            image: "h4.jpg",
+          },
+          {
+            id: 65,
+            name: "Rosemary",
+            type: "Lily",
+            price: 9.99,
+            image: "h5.jpg",
+          },
+          {
+            id: 66,
+            name: "Bright plant",
+            type: "Lily",
+            price: 9.99,
+            image: "h6.jpg",
+          },
+          {
+            id: 67,
+            name: "Basel",
+            type: "Lily",
+            price: 9.99,
+            image: "h7.jpg",
+          },
+          {
+            id: 68,
+            name: "white peas",
+            type: "Lily",
+            price: 9.99,
+            image: "h8.jpg",
+          },
+          {
+            id: 69,
+            name: "Snow peas",
+            type: "Lily",
+            price: 9.99,
+            image: "h9.jpg",
+          },
+        ];
+
+        const shr = [
+          {
+            id: 71,
+            name: "Pink boquee",
+            type: "Lily",
+            price: 9.99,
+            image: "shurb1.jpg",
+          },
+          {
+            id: 72,
+            name: "red keppal",
+            type: "Lily",
+            price: 9.99,
+            image: "shurb2.jpg",
+          },
+          {
+            id: 73,
+            name: "Boxwood",
+            type: "Lily",
+            price: 9.99,
+            image: "shutrb3.jpg",
+          },
+          {
+            id: 74,
+            name: "Rose of sharon",
+            type: "Lily",
+            price: 9.99,
+            image: "shurb4.jpg",
+          },
+          {
+            id: 75,
+            name: "green bunch",
+            type: "Lily",
+            price: 9.99,
+            image: "shurb5.jpg",
+          },
+          {
+            id: 76,
+            name: "False cypress",
+            type: "Lily",
+            price: 9.99,
+            image: "shurb6.jpg",
+          },
+          {
+            id: 77,
+            name: "yew",
+            type: "Lily",
+            price: 9.99,
+            image: "shurb7.jpg",
+          },
+          {
+            id: 78,
+            name: "Abelia",
+            type: "Lily",
+            price: 9.99,
+            image: "shurb8.jpg",
+          },
+          {
+            id: 79,
+            name: "beauty berry",
+            type: "Lily",
+            price: 9.99,
+            image: "shurb9.jpg",
+          },
+        ];
+
+        const tre = [
+          {
+            id: 81,
+            name: "plumtree",
+            type: "Lily",
+            price: 9.99,
+            image: "plumtree.jpg",
+          },
+          {
+            id: 82,
+            name: "cherrytree",
+            type: "Lily",
+            price: 9.99,
+            image: "cherrytree.jpg",
+          },
+          {
+            id: 83,
+            name: "peartree",
+            type: "Lily",
+            price: 9.99,
+            image: "peartree.jpg",
+          },
+          {
+            id: 84,
+            name: "orangetree",
+            type: "Lily",
+            price: 9.99,
+            image: "orangetree.jpg",
+          },
+          {
+            id: 85,
+            name: "chikkutree",
+            type: "Lily",
+            price: 9.99,
+            image: "chikkutree.jpg",
+          },
+          {
+            id: 86,
+            name: "mango",
+            type: "Lily",
+            price: 9.99,
+            image: "mangot.jpg",
+          },
+          {
+            id: 87,
+            name: "red Lily",
+            type: "Lily",
+            price: 9.99,
+            image: "lily.jpg",
+          },
+          {
+            id: 88,
+            name: "lenom",
+            type: "Lily",
+            price: 9.99,
+            image: "lenont.jpg",
+          },
+          {
+            id: 89,
+            name: "gava",
+            type: "Lily",
+            price: 9.99,
+            image: "gava.jpg",
+          },
+        ];
+
+        const aqu = [
+          {
+            id: 91,
+            name: "salvinianatans",
+            type: "Lily",
+            price: 9.99,
+            image: "salvinianatansap.jpg",
+          },
+          {
+            id: 92,
+            name: "hygrophiladifforis",
+            type: "Lily",
+            price: 9.99,
+            image: "hygrophiladifforisap.jpg",
+          },
+          {
+            id: 93,
+            name: "dwarfhairgrass1",
+            type: "Lily",
+            price: 9.99,
+            image: "dwarfhairgrass1ap.jpg",
+          },
+          {
+            id: 94,
+            name: "waterpoppy1",
+            type: "Lily",
+            price: 9.99,
+            image: "waterpoppy1ap.jpg",
+          },
+          {
+            id: 95,
+            name: "redca  bom bacabm bafurcata",
+            type: "Lily",
+            price: 9.99,
+            image: "redcabombacabmbafurcata_ap.jpg",
+          },
+          {
+            id: 96,
+            name: "marsileahirsuta",
+            type: "Lily",
+            price: 9.99,
+            image: "marsileahirsutaap.jpg",
+          },
+          {
+            id: 97,
+            name: "hemianthu  smicran the moide spearlwd ",
+            type: "Lily",
+            price: 9.99,
+            image: "hemianthusmicranthemoidespearlwdap.jpg",
+          },
+          {
+            id: 98,
+            name: "pogo stemon sttus",
+            type: "Lily",
+            price: 9.99,
+            image: "pogostemonsttusap.jpg",
+          },
+          {
+            id: 99,
+            name: "cryptocoryne_wendtii tropicaltis sueculture ",
+            type: "Lily",
+            price: 9.99,
+            image: "cryptocoryne_wendtiitropicaltissuecultureap.jpg",
+          },
+        ];
+
+        // function to display plant details
+        function displayPlant(plant) {
+          document.write(`
+            <div class="plant-item">
+              <div class="plant-img">
+                <img src="${plant.image}" alt="${plant.name}" />
+              </div>
+              <h2>${plant.name}</h2>
+              <p>Type: ${plant.type}</p>
+              <p>Price: $${plant.price.toFixed(2)}</p>
+              <a class="primary-button" href="buy.html" onclick="addToCart('${
+                plant.name
+              }', ${plant.price},${plant.id})">Buy Now</a>
+              <button class="secondary-button" onclick="addToCart('${
+                plant.name
+              }', ${plant.price},${plant.id})">Add to Cart</button>
+            </div>
+          `);
+        }
+
+        // loop through the array and display each plant
+        // Display only roses by default
+
+        let category = localStorage.getItem("plantCategory");
+        console.log(category);
+
+        if (category) {
+          let selectedPlants;
+          if (category === "fp") {
+            selectedPlants = fp;
+          } else if (category === "fer") {
+            selectedPlants = fer;
+          } else if (category === "con") {
+            selectedPlants = con;
+          } else if (category === "suc") {
+            selectedPlants = suc;
+          } else if (category === "gra") {
+            selectedPlants = gra;
+          } else if (category === "her") {
+            selectedPlants = her;
+          } else if (category === "shr") {
+            selectedPlants = shr;
+          } else if (category === "tre") {
+            selectedPlants = tre;
+          } else if (category === "aqu") {
+            selectedPlants = aqu;
+          } else {
+            // Default to fp if the category is not recognized
+            selectedPlants = fp;
+          }
+
+          selectedPlants.forEach(displayPlant);
+        }
+
+        // variable to store cart items
+        let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function addToCart(plantName, price, id) {
+          // Create an object for the plant
+          const plant = {
+            name: plantName,
+            price: price,
+            quantity: 1,
+            id: id,
+          };
+
+          // Add the plant to the cart
+          cartItems.push(plant);
+
+          // Save the cart to localStorage
+          localStorage.setItem("cart", JSON.stringify(cartItems));
+
+          // Redirect to the cart page
+          window.location.href = "cart.html";
+        }
+      </script>
+    </section>
+  </body>
+</html>

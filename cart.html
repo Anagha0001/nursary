@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .remove-button {
+        background-color: #ff5555;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+      }
+      #backToProducts {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Shopping Cart</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cartItems"></tbody>
+    </table>
+
+    <div id="totalPrice"></div>
+
+    <a href="showmore.html" id="backToProducts">Back to Products</a>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", displayCart);
+
+      function displayCart() {
+        const cartItemsContainer = document.getElementById("cartItems");
+        const totalPriceContainer = document.getElementById("totalPrice");
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        let total = 0;
+
+        cart.forEach((item) => {
+          const cartRow = document.createElement("tr");
+          cartRow.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td><button class="remove-button" onclick="removeFromCart('${
+                      item?.id
+                    }')">Remove</button></td>
+                `;
+          cartItemsContainer.appendChild(cartRow);
+
+          total += item.price * item.quantity;
+        });
+
+        // Display total price
+        totalPriceContainer.innerHTML = `<strong>Total Price: $${total.toFixed(
+          2
+        )}</strong>`;
+      }
+
+      function removeFromCart(productId) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Find the index of the item with the specified id
+        const index = cart.findIndex((item) => item.id == productId);
+
+        if (index !== -1) {
+          // Remove the item from the array
+          cart.splice(index, 1);
+
+          // Update the local storage
+          localStorage.setItem("cart", JSON.stringify(cart));
+
+          // Refresh the cart display after removal
+          const cartItemsContainer = document.getElementById("cartItems");
+          cartItemsContainer.innerHTML = "";
+          displayCart();
+        }
+      }
+    </script>
+  </body>
+</html>

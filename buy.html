@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Order Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(rgba(181, 246, 204, 0.884),rgb(79, 224, 1)),url(book2.jpg);
+      margin: 0;
+      padding: 0;
+    }
+
+    
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color:rgb(187, 202, 201);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h2 {
+      text-align: center;
+      color:rgb(174, 202, 35);
+      font-size:50px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 8px;
+    }
+
+    input, select {
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #3bd034;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color:rgb(5, 68, 33);
+      color: #f0f4f5;
+      cursor: pointer;
+      font-size: 25px;
+    }
+
+    input[type="submit"]:hover {
+      background-color:rgb(2, 106, 106);
+      cursor:progress;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2> ORDER FORM</h2>
+    <form  id="orderForm" action="connect.php" method="post">
+
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" name="firstname" required>
+
+      <label for="name">Last Name:</label>
+      <input type="text" id="lastname" name="lastname" required>
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="name">Contact Number:</label>
+      <input type="tel" id="number" name="number" required>
+
+      <label for="address">Shipping Address:</label>
+      <textarea id="address" name="address" rows="4" required></textarea><br>
+
+      <h3>Payment Method</h3>
+      <label>
+          <input type="radio" name="payment_method" id="payment_method" value="credit_card" checked>
+          Credit Card
+      </label>
+  
+      <label>
+          <input type="radio" name="payment_method" id="payment_method"  value="paypal">
+          PayPal
+      </label>
+  
+      <label>
+          <input type="radio" name="payment_method" id="payment_method" value="bank_transfer">
+          Bank Transfer
+      </label>
+  
+      <label>
+          <input type="radio" name="payment_method" id="payment_method" value="other">
+          Other UPI Apps
+      </label> 
+      
+      <label>
+          <input type="radio" name="payment_method" id="payment_method" value="netbank">
+          Net Banking
+      </label>
+  
+      <label>
+          <input type="radio" name="payment_method" id="payment_method" value="netbank">
+         Cash on Delivery/ Pay on Delivery
+      </label>
+
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" min="1" max="20" required>
+
+      <input type="submit" value="Place Order">
+
+    </form>
+  </div>
+  <script>
+    function placeOrder() {
+      // You can add additional logic here, such as form validation before showing the alert
+      alert("Order placed successfully!");
+    }
+  </script>
+  
+  
+  
+  
+
+</body>
+</html>
